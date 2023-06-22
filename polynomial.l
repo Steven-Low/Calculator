@@ -38,6 +38,7 @@ void yyerror(char *);
 "PRINT"			{ return PRINT; }
 "DERIVATIVE" 	{ return DERIVATIVE; }
 "ADDITION"		{ return ADDITION; }
+"SIMPLIFY"		{ return SIMPLIFY; }
 "INTEGRATE"		{ return INTEGRATE; }
 "SOLVE"			{ return SOLVE; }
 "COMPUTE"		{ return COMPUTE; }

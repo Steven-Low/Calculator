@@ -23,7 +23,7 @@ int yylex(void);
 %token <tri> TRIG
 %token <op> ADD SUB MUL DIV EXP EQU SEMI
 %token LP RP
-%token PRINT DERIVATIVE ADDITION INTEGRATE SOLVE COMPUTE
+%token PRINT ADDITION SIMPLIFY DERIVATIVE INTEGRATE SOLVE COMPUTE
 
 %type <n> stmt expr term efactor factor equation equations
 
@@ -42,7 +42,8 @@ stmt    : equations function	  {  }
 function: PRINT					  { display(final); }   // expanded equation
 		| DERIVATIVE 			  { derivative(final); simplify(final); display(final); }
 		| INTEGRATE 			  { integrate(final); simplify(final); display(final); }
-		| ADDITION				  { simplify(final);  display(final); }
+		| ADDITION				  { simplify(final); display(final); }
+		| SIMPLIFY				  { simplify(final); display(final); }
 		| SOLVE					  { simplify(final); solve(final); }
 		| COMPUTE NUMBER 		  { simplify(final); printf("Answer: %.5f\n",computeNode(final,$2)); }
 		| COMPUTE 				  { simplify(final); printf("Answer: %.5f\n",computeNode(final,0)); } // default is 0
@@ -84,9 +85,11 @@ int main(){
 functions:  \n \
 	1)print		\n \
 	2)addition	\n \
-	3)integrate	\n \
-	4)solve 	\n \
+	3)simplify  \n \
+	4)integrate	\n \
 	5)derivative\n \
+	6)solve 	\n \
+	7)compute   \n \
 prompt: equation {space} function\n\n ");
 			
 	printf("%s","Enter prompt below: \n");

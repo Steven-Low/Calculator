@@ -139,7 +139,6 @@ struct node* multiply(struct node* a, struct node* b){
                     addNode(newNode,coef,'\0',1,"sin",left);
 					struct node* right = subtract(currNodeA->inner,currNodeB->inner);
 					addNode(newNode,-1 * coef,'\0',1,"sin",right);
-					printf("invoked4\n");
                 }
 				}
 				
@@ -632,7 +631,7 @@ void solve(struct node *f){
 			printf("The approximate solution of given polynomial is x = %.6f\n",x1);
 		else
 			printf("The approximate solution after 100 iterations: x = %.6f\n",x1);
-		if(isTrigo)
+		if(isTrigo(f))
 			printf("The solution may diverge as trigometry present in the equation.\n");
 	}
 };
