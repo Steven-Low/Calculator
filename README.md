@@ -42,7 +42,7 @@ New Features:
    - input : (x-22)^5 solve
    - output: The approximate solution after 100 iterations: x = 21.997941
 7) compute
-   - input : 0.5*sin(pI) + x^10 compute 2
+   - input : 0.5*sin(pi) + x^10 compute 2
    - output: Answer: 1024.00000
 
 
