@@ -14,13 +14,11 @@ int yylex(void);
 	float num;
 	char op;
 	char x;
-	char* tri;
 	struct node *n;
 }
 
 %token <x> VARIABLE
 %token <num> NUMBER
-%token <tri> TRIG
 %token <op> ADD SUB MUL DIV EXP EQU SEMI
 %token LP RP
 %token PRINT ADDITION SIMPLIFY DERIVATIVE INTEGRATE SOLVE COMPUTE
@@ -73,10 +71,9 @@ efactor	: efactor EXP NUMBER  	  { $$ = setExponent($1,$3); }
 		| factor				  { $$ = $1; }
 		;
 
-factor	: NUMBER				  { $$ = createNode($1, '\0', 0, NULL, NULL); }
-		| VARIABLE   			  { $$ = createNode(1, $1, 1, NULL, NULL); } 
+factor	: NUMBER				  { $$ = createNode($1, '\0', 0); }
+		| VARIABLE   			  { $$ = createNode(1, $1, 1); } 
 		| LP expr RP			  { $$ = $2; }
-		| TRIG LP expr RP 	  	  { $$ = createTrigNode($1, $3); }
 		;
 %%
 
