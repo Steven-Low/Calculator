@@ -17,8 +17,8 @@ Program executing image:
 # DESCRIPTION
 Syntax-directed calculator is a command-line program to perform arithmetic operations and mathematical techniques on polynomials. It is built via lex and yacc files and requires gcc to compile.
 
-``` [equation] [functions] ```
-``` [equation] ; [equation] [functions] (for addition) ``` 
+``` [equation] [functions] \n```
+``` [equation] ; [equation] [functions] (for addition) \n``` 
 ``` (2*x + 1)^3 solve ```
 
 # FUNCTIONS
